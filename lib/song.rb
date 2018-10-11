@@ -61,15 +61,16 @@ class Song
   end
 
   def self.create_from_filename(name)
+    #initializes and saves a song and artist_name based on the filename format
     song = self.new
     song.name = (name.split(" - ")[1].chomp(".mp3"))
     song.artist_name = (name.split(" - ")[0])
     @@all << song
-    #initializes and saves a song and artist_name based on the filename format
   end
 
   def destroy_all
     #clears all the song instances from the @@all array
+    @@all.clear
   end
 
 end
