@@ -13,51 +13,51 @@ class Song
   end
 
   def self.create
+    # instantiates and saves the song, and returns the new song that was created
     song = self.new
     song.save
     song
-    # instantiates and saves the song, and returns the new song that was created
   end
 
   def self.new_by_name(name)
+    #instantiates a song with a name property
     song = self.new
     song.name = name
     song
-    #instantiates a song with a name property
   end
 
   def self.create_by_name(name)
+    #instantiates and saves a song with a name property
     song = self.new
     song.name = name
     song.save
     song
-    #instantiates and saves a song with a name property
   end
 
   def self.find_by_name(name)
-    @@all.find {|song| song.name == name}
     #can find a song present in @@all by name
     #returns falsey when a song name is not present in @@all
+    @@all.find {|song| song.name == name}
   end
 
   def self.find_or_create_by_name(name)
-    self.find_by_name(name) || self.create_by_name(name)
     #invokes .find_by_name and .create_by_name instead of repeating code
     #returns the existing Song object (doesn't create a new one) when provided the title of an existing Song
     #creates a new Song object with the provided title if one doesn't already exist
+    self.find_by_name(name) || self.create_by_name(name)
   end
 
   def self.alphabetical
-    @@all.sort_by{|song| song.name}
     #returns all the song instances in alphabetical order by song name
+    @@all.sort_by{|song| song.name}
   end
 
   def self.new_from_filename(name)
+    #initializes a song and artist_name based on the filename format
     song = self.new
     song.name = (name.split(" - ")[1].chomp(".mp3"))
     song.artist_name = (name.split(" - ")[0])
     song
-    #initializes a song and artist_name based on the filename format
   end
 
   def self.create_from_filename(name)
