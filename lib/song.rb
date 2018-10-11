@@ -55,9 +55,9 @@ class Song
   def self.new_from_filename(filename)
     song = self.new
     song.name = (filename.split)
-    binding.pry
     #initializes a song and artist_name based on the filename format
   end
+  binding.pry
 
   def create_from_filename
     #initializes and saves a song and artist_name based on the filename format
