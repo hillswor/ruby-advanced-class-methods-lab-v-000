@@ -54,8 +54,8 @@ class Song
 
   def self.new_from_filename(filename)
     song = self.new
-    song = filename.split(" - ").delete(".mp3")
-    song
+    song.name = (filename.split(" - ")[1].delete(".mp3"))
+    song.artist_name = (filename.split(" - ")[0])
     #initializes a song and artist_name based on the filename format
   end
   binding.pry
