@@ -68,7 +68,7 @@ class Song
     @@all << song
   end
 
-  def destroy_all
+  def self.destroy_all
     #clears all the song instances from the @@all array
     @@all.clear
   end
