@@ -58,7 +58,6 @@ class Song
     song.artist_name = (filename.split(" - ")[0])
     #initializes a song and artist_name based on the filename format
   end
-  binding.pry
 
   def create_from_filename
     #initializes and saves a song and artist_name based on the filename format
